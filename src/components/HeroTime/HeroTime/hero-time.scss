@@ -9,8 +9,21 @@
     font-size: 7rem;
     background: #27374D;
     color: #9DB2BF;
-    .hero-text{
+
+    .duck-container {
+        z-index: 60;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        .duck{
+            position: absolute;
+            width: 2em;
+        }
+    }
+
+    .hero-text {
         display: flex;
         text-align: center;
+        z-index: 50;
     }
 }

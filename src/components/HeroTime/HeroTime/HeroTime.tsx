@@ -48,9 +48,29 @@ const HeroTime: React.FC = () => {
 
   return (
     <div className="container">
+      <motion.div
+        animate={{
+          scale: [0.2, 1],
+          translateY: [100, 400],
+        }}
+        transition={{
+          duration: 15,
+          ease: "easeIn",
+          repeat: Infinity,
+          repeatDelay: 4,
+        }}
+        className="duck-container"
+      >
+        <img
+          className="duck"
+          src={process.env.PUBLIC_URL + "/giphy.gif"}
+          alt="duck"
+        />
+      </motion.div>
+
       {timeRemaining ? (
         <h1 className="hero-text">
-          {timeRemaining?.hours} : {timeRemaining?.minutes} :{" "}
+          {timeRemaining?.hours} : {timeRemaining?.minutes} :{"  "}
           <motion.div
             animate={{
               opacity: [0.1, 0],
@@ -62,7 +82,7 @@ const HeroTime: React.FC = () => {
             }}
             className="second"
           >
-            {" "}{timeRemaining!.seconds < 10 ? "0" : ""}
+            {timeRemaining!.seconds < 10 ? "0" : ""}
             {timeRemaining?.seconds}
           </motion.div>
         </h1>
