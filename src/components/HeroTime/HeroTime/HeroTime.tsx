@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./hero-time.scss";
+import Music from "../../Music/Music";
 const HeroTime: React.FC = () => {
   const targetHour = 17; // 5:00 PM
   const targetMinute = 30;
@@ -55,6 +56,7 @@ const HeroTime: React.FC = () => {
       ) : (
         <h1 className="hero-text">Loading....</h1>
       )}
+      {<Music />}
     </div>
   );
 };
