@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./hero-time.scss";
 import Music from "../../Music/Music";
+import { motion } from "framer-motion";
 const HeroTime: React.FC = () => {
   const targetHour = 17; // 5:00 PM
   const targetMinute = 30;
@@ -50,8 +51,20 @@ const HeroTime: React.FC = () => {
       {timeRemaining ? (
         <h1 className="hero-text">
           {timeRemaining?.hours} : {timeRemaining?.minutes} :{" "}
-          {timeRemaining!.seconds < 10 ? "0" : ""}
-          {timeRemaining?.seconds}
+          <motion.div
+            animate={{
+              opacity: [0.1, 0],
+            }}
+            transition={{
+              duration: 1,
+              ease: "easeIn",
+              repeat: Infinity,
+            }}
+            className="second"
+          >
+            {" "}{timeRemaining!.seconds < 10 ? "0" : ""}
+            {timeRemaining?.seconds}
+          </motion.div>
         </h1>
       ) : (
         <h1 className="hero-text">Loading....</h1>
